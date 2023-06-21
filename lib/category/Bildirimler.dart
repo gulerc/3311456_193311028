@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,6 +31,9 @@ class _BildirimlerState extends State<Bildirimler> {
           ),
         ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
+      body: Container(
+
+      )
     );
   }
 }
