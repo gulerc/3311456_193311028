@@ -210,8 +210,11 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Column(
           children: [
-            Container(
+            AnimatedContainer(
+              duration: const Duration(seconds: 10),
+              curve: Curves.fastOutSlowIn,
               decoration: BoxDecoration(color: Colors.red),
+
               width: MediaQuery.of(context).size.width,
               height: 100,
               child: Image.asset("assets/images/sondakika.png"),
