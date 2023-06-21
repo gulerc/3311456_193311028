@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../Firebase/Firebase_islemleri.dart';
 import 'HomePage.dart';
 import 'KayıtOl.dart';
 import 'SifremiUnuttum.dart';
@@ -15,7 +16,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
+  final TextEditingController? _Adsoyad = TextEditingController();
+  final TextEditingController? _Sifre = TextEditingController();
+  girisservisi _girisservisi= girisservisi();
   bool isRememberMe =false;
   @override
 
@@ -48,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           height: 60,
           child: TextField(
-
+            controller: _Adsoyad!,
             keyboardType:TextInputType.emailAddress ,
             textInputAction: TextInputAction.next,
             style: TextStyle(
@@ -99,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           height: 60,
           child: TextField(
-
+            controller: _Sifre,
             textInputAction: TextInputAction.done,
             obscureText: true,
             style: TextStyle(
@@ -180,8 +183,9 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(15)
           ),),
 
-        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())),
-        //Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage())),
+        onPressed: ()=> {print("Giriş Yap Butonuna Basıldı."),
+          _girisservisi.girisyap(_Adsoyad!.text, _Sifre!.text).then((value){
+            return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));}),},
 
 
 
@@ -203,12 +207,12 @@ class _LoginPageState extends State<LoginPage> {
 
   }
   Widget buildSignUpButon(){
-    return GestureDetector(
+    return GestureDetector(//kullanıcın hareketini algılar
       onTap: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>Kayitol())); },
-      child: RichText(
+      child: RichText(// zengin metin sınıfı
         text: TextSpan(
             children: [
-              TextSpan(
+              TextSpan(//değişmez metin aralığı
                   text: "Hesabın yok mu ? ",
                   style: TextStyle(
                       color: Colors.white,
@@ -235,16 +239,16 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
+      body: AnnotatedRegion<SystemUiOverlayStyle>(// temayı kullanabilmek için
         value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
+        child: GestureDetector(// hareket algılar
           child: Stack(
             children: <Widget>[
               Container(
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: LinearGradient(// renk geçişleri için
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Bildirimler extends StatefulWidget {
   const Bildirimler({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ class _BildirimlerState extends State<Bildirimler> {
           "Bildirimler",
           style: TextStyle(color: Colors.black),
         ),
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -28,7 +28,7 @@ class _BildirimlerState extends State<Bildirimler> {
             size: 20,
             color: Colors.black,
           ),
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
     );
   }

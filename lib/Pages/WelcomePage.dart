@@ -36,7 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
     childWidget: SizedBox(
     height: 200,
     width: 200,
-    child: Image.asset("assets/haber2.png"),
+    child: Image.asset("assets/images/haber2.png"),
     ),
     onAnimationEnd: () => debugPrint("On Fade In End"),
     defaultNextScreen: LoginPage());

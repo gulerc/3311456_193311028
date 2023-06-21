@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 class YurtHaber extends StatefulWidget {
   const YurtHaber({Key? key}) : super(key: key);
 
@@ -16,7 +17,6 @@ class _YurtHaberState extends State<YurtHaber> {
           "Yurt Haber",
           style: TextStyle(color: Colors.black),
         ),
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -27,7 +27,7 @@ class _YurtHaberState extends State<YurtHaber> {
             size: 20,
             color: Colors.black,
           ),
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
     );
   }

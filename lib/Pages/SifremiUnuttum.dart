@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:haber_uygulamasi/Pages/LoginPage.dart';
 
 
@@ -7,10 +8,9 @@ class SifremiUnuttum extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white,// ekran klavyesi açıldığında yeniden boyutlandırma
       appBar: AppBar(
         elevation: 0,
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -19,7 +19,7 @@ class SifremiUnuttum extends StatelessWidget {
           icon: Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -101,7 +101,7 @@ Widget inputFile({label, obscureText = false})
       TextField(
 
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(vertical: 0,
+            contentPadding: EdgeInsets.symmetric(vertical: 0,// dikey ve yatay ayarlama
                 horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(

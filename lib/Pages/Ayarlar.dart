@@ -1,6 +1,7 @@
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Ayarlar extends StatefulWidget {
   const Ayarlar({Key? key}) : super(key: key);
@@ -19,7 +20,6 @@ class _AyarlarState extends State<Ayarlar> {
           "Ayarlar",
           style: TextStyle(color: Colors.black),
         ),
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -30,7 +30,7 @@ class _AyarlarState extends State<Ayarlar> {
             size: 20,
             color: Colors.black,
           ),
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

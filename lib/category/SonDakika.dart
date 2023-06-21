@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SonDakika extends StatefulWidget {
   const SonDakika({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ centerTitle: true,
           "Son Dakika",
           style: TextStyle(color: Colors.black),
         ),
-        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -28,7 +28,7 @@ centerTitle: true,
             size: 20,
             color: Colors.black,
           ),
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
     );
   }
